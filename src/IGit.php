@@ -8,7 +8,9 @@
 
 	namespace Cz\Git;
 
-	interface IGit
+	use Throwable;
+
+    interface IGit
 	{
 		/**
 		 * Creates a tag.
@@ -235,4 +237,16 @@
 
 	class GitException extends \Exception
 	{
-	}
+	    private $output;
+
+        public function __construct($message = "", $code = 0, $output = null)
+        {
+            $this->output = $output;
+            parent::__construct($message, $code);
+        }
+
+        public function getOutPut()
+        {
+            return $this->output;
+        }
+    }

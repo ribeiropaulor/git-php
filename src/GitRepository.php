@@ -596,7 +596,7 @@
 
 			if($ret !== 0)
 			{
-				throw new GitException("Command '$cmd' failed (exit-code $ret).", $ret);
+				throw new GitException("Command '$cmd' failed (exit-code $ret).", $ret, $output);
 			}
 
 			return $this;
